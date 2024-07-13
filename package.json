@@ -1,7 +1,7 @@
 {
   "name": "digital-store",
   "private": true,
-  "version": "1.0.0-dev",
+  "version": "1.0.1-dev",
   "type": "module",
   "author": {
     "name": "Marlon Mendes & Luis Victor"

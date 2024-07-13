@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', ...fontFamily.sans],
+        sans: ['Inter', ...fontFamily.sans],
       },
       colors: {
         primary: '#C92071',

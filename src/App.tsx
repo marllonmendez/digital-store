@@ -1,11 +1,9 @@
 import React from 'react'
 
+import { AppRoutes } from '@/routes'
+
 function App() {
-  return (
-    <>
-      <h1 className="text-8xl">Olá Mundo</h1>
-    </>
-  )
+  return <AppRoutes />
 }
 
 export default App
