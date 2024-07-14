@@ -23,7 +23,9 @@ const Navigation: React.FC<INavigation> = ({
             ${className}  
           `}
         >
-          {label}
+          <ul>
+            <li>{label}</li>
+          </ul>
           <span
             className={`
               h-[2px] inline-block bg-primary

@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.swiper-pagination-bullet, .swiper-pagination-bullet-active {
+  background: #C92071;
+}
