@@ -3,8 +3,14 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { INavigation } from '@/interface'
 
-const Navigation = ({ label, page, onClick, className }: INavigation) => {
+const Navigation: React.FC<INavigation> = ({
+  label,
+  page,
+  onClick,
+  className,
+}) => {
   const location = useLocation()
+
   return (
     <>
       <nav className="flex pt-10 gap-2 text-[1rem] text-darkGray2 font-normal">

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ILogo } from '@/interface'
 
-const Logo = ({ image, description, className }: ILogo) => {
+const Logo: React.FC<ILogo> = ({ image, description, className }) => {
   return (
     <>
       <div className="flex gap-2">

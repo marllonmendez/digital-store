@@ -16,3 +16,9 @@ export interface INavigation {
   className?: string
   onClick?: () => void
 }
+
+export interface IButton {
+  label: string
+  onClick?: () => void
+  className?: string
+}

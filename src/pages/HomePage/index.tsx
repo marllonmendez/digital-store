@@ -1,11 +1,12 @@
 import React from 'react'
-
-import { ShowroomOffers } from '@/pages/HomePage/showroomOffers'
+import { HeroSection } from '@/pages/HomePage/HeroSection'
 
 export const HomePage = () => {
   return (
     <>
-      <ShowroomOffers />
+      <main>
+        <HeroSection />
+      </main>
     </>
   )
 }
