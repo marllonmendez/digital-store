@@ -1,17 +1,8 @@
 import React from 'react'
+import { IconType } from 'react-icons'
 
 export interface ILayout {
   children?: React.ReactNode
-}
-
-export interface ISection {
-  title: string
-  titleAlign?: string
-  link?: {
-    text: string
-    href: string
-  }
-  children: React.ReactNode
 }
 
 export interface ILogo {
@@ -42,4 +33,18 @@ export interface IItemsFooter {
   label: string
   items: string[]
   className?: string
+}
+
+export interface IPopularCard {
+  label: string
+  discount: string
+  img: {
+    src: string
+    alt: string
+  }
+}
+
+export interface ICategoryCard {
+  label: string
+  icon: IconType
 }

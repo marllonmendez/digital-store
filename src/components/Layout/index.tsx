@@ -7,9 +7,9 @@ import Footer from '@/components/Footer'
 
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white2">
       <Header />
-      <main className="flex min-h-screen">{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </div>
   )

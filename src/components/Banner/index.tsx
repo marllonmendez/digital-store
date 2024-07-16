@@ -9,7 +9,7 @@ import whiteSneaker from '@/assets/white-sneaker.png'
 const Banner: React.FC = () => {
   return (
     <>
-      <section className="flex items-center justify-center px-24 py-5">
+      <section className="flex items-center justify-center bg-lightGray3 px-24 py-5">
         <img
           src={Ornament}
           alt="Particulas brilhantes"
