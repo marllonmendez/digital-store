@@ -7,6 +7,10 @@ import ItemsFooter from '@/components/Footer/ItemsFooter'
 import logoFooter from '@/assets/logo-footer.svg'
 
 const Footer: React.FC = () => {
+  function Year() {
+    return new Date().getFullYear()
+  }
+
   return (
     <>
       <footer className="flex flex-col bg-darkGray px-24 pt-10 md:px-32">
@@ -43,7 +47,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex justify-between gap-28">
             <ItemsFooter
-              label="Informações"
+              title="Informações"
               items={[
                 'Sobre Drip Store',
                 'Segurança',
@@ -54,11 +58,11 @@ const Footer: React.FC = () => {
               ]}
             />
             <ItemsFooter
-              label="Categorias"
+              title="Categorias"
               items={['Camisetas', 'Calças', 'Bonés', 'Headphones', 'Tênis']}
             />
             <ItemsFooter
-              label="Contato"
+              title="Contato"
               items={[
                 'Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161',
                 '(85) 3051-3411',
@@ -70,7 +74,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-center gap-5 pt-10 pb-5">
           <span className="border border-darkGray3 border-solid w-full bottom-[128px]"></span>
           <p className="font-normal text-[13px] text-white">
-            &copy; 2024 Digital College
+            &copy; {Year()} Digital College
           </p>
         </div>
       </footer>

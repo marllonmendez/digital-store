@@ -37,10 +37,10 @@ const Header: React.FC = () => {
           </div>
         </section>
         <section className="flex">
-          <Navigation label="Home" page="/" className="mr-4" />
-          <Navigation label="Produtos" page="/Home" className="mx-4" />
-          <Navigation label="Categorias" page="/Home" className="mx-4" />
-          <Navigation label="Meus Pedidos" page="/Home" className="ml-4" />
+          <Navigation title="Home" page="/" className="mr-4" />
+          <Navigation title="Produtos" page="/Home" className="mx-4" />
+          <Navigation title="Categorias" page="/Home" className="mx-4" />
+          <Navigation title="Meus Pedidos" page="/Home" className="ml-4" />
         </section>
       </header>
     </>

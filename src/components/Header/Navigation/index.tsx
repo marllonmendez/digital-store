@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { INavigation } from '@/interface'
 
 const Navigation: React.FC<INavigation> = ({
-  label,
+  title,
   page,
   onClick,
   className,
@@ -24,7 +24,7 @@ const Navigation: React.FC<INavigation> = ({
           `}
         >
           <ul>
-            <li>{label}</li>
+            <li>{title}</li>
           </ul>
           <span
             className={`

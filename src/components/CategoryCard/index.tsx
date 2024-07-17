@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ICategoryCard } from '@/interface'
 
-const CategoryCard: React.FC<ICategoryCard> = ({ label, icon: Icon }) => {
+const CategoryCard: React.FC<ICategoryCard> = ({ title, icon: Icon }) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-2">
@@ -12,7 +12,7 @@ const CategoryCard: React.FC<ICategoryCard> = ({ label, icon: Icon }) => {
             className="cursor-pointer text-lightGray hover:text-primary ease-in transition-all duration-300"
           />
         </div>
-        <h2 className="text-darkGray2 font-bold text-[14px]">{label}</h2>
+        <h2 className="text-darkGray2 font-bold text-[14px]">{title}</h2>
       </div>
     </>
   )
