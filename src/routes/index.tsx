@@ -18,7 +18,7 @@ const AppRoutes = (): ReactElement => {
         }
       />
       <Route
-        path="/ProductListing"
+        path="/produtos"
         element={
           <Layout>
             <ProductListingPage />

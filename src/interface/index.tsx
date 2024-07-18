@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconType } from 'react-icons'
 
-import { Session } from '@/enum'
+import { ProductSession } from '@/enum'
 
 export interface ILayout {
   children?: React.ReactNode
@@ -87,7 +87,7 @@ export interface IOfferCard {
 
 export interface IProductCard {
   type: string
-  session: Session
+  session: ProductSession
   title: string
   price: number
   discount?: number
@@ -95,4 +95,18 @@ export interface IProductCard {
     src: string
     style?: string
   }
+}
+
+export interface IFilterGroup {
+  title: string
+  inputType: 'checkbox' | 'radio'
+  options: {
+    label: string
+    value: string
+  }[]
+}
+
+export interface ISearch {
+  products: IProductCard[]
+  filterProducts: React.Dispatch<React.SetStateAction<IProductCard[]>>
 }

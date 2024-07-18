@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { ProductSession } from '@/enum'
+
 import Section from '@/components/Section'
 import ProductCard from '@/components/ProductCard'
-import { Session } from '@/enum'
 
 export const HotSection = () => {
   return (
@@ -16,18 +17,18 @@ export const HotSection = () => {
         >
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
-            title="Air Jordan 1 Retro High OG 'Shadow'"
-            price={699.99}
+            session={ProductSession.ADULT}
+            title="Air Jordan 11 Retro Low 'Pink Snakeskin'"
+            price={1499.99}
             discount={30}
             image={{
-              src: 'https://image.goat.com/375/attachments/product_template_pictures/images/011/119/994/original/218099_00.png.png',
+              src: 'https://image.goat.com/attachments/product_template_pictures/images/021/357/907/original/478963_00.png.png',
               style: 'w-52 rotate-[-30deg]',
             }}
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Air Jordan 11 Retro 'Space Jam'"
             price={2199.99}
             discount={20}
@@ -38,7 +39,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="OFF-WHITE x Air Jordan 1 Retro High OG 'UNC'"
             price={5490.99}
             discount={30}
@@ -49,7 +50,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Travis Scott x Air Jordan 4 Retro 'Cactus Jack'"
             price={9999.99}
             discount={30}
@@ -60,7 +61,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Air Jordan 1 Retro High OG 'Turbo Green'"
             price={999.99}
             image={{
@@ -70,7 +71,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Air Jordan 1 Retro High OG 'Crimson Tint'"
             price={999.99}
             image={{
@@ -80,7 +81,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Air Jordan 1 Retro High SB 'Lakers'"
             price={999.99}
             image={{
@@ -90,7 +91,7 @@ export const HotSection = () => {
           />
           <ProductCard
             type="Tênis"
-            session={Session.Adulto}
+            session={ProductSession.ADULT}
             title="Air Jordan 1 Retro High OG 'Origin Story'"
             price={999.99}
             image={{

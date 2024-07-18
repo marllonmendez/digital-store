@@ -10,7 +10,7 @@
 [![React.js](https://img.shields.io/badge/React-C92071?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-C92071?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-C92071?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Lucide Icons](https://img.shields.io/badge/Lucide%20Icons-C92071?style=for-the-badge&logo=react&logoColor=white)](https://lucide.dev/guide/)
+[![React Icons](https://img.shields.io/badge/React%20Icons-C92071?style=for-the-badge&logo=react&logoColor=white)](https://react-icons.github.io/react-icons/)
 [![Prettier](https://img.shields.io/badge/prettier-C92071?style=for-the-badge&logo=prettier&logoColor=white)](https://prettier.io/)
 [![ESLint](https://img.shields.io/badge/eslint-C92071?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 [![Vite](https://img.shields.io/badge/Vite-C92071?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -19,6 +19,8 @@
 
 ## Sobre
 Este é o frontend mockado de um e-commerce, desenvolvido como parte de um desafio proposto na formação Full-Stack do programa Geração Tech, em parceria com o governo do estado do Ceará.
+
+[![Hero Section](src/assets/hero-section.png)]()
 
 ## Guia de Instalação
 
