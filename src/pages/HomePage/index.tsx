@@ -7,13 +7,11 @@ import { HotSection } from '@/pages/HomePage/HotSection'
 
 export const HomePage = () => {
   return (
-    <>
-      <main>
-        <HeroSection />
-        <CollectionSection />
-        <HotSection />
-        <SpecialSection />
-      </main>
-    </>
+    <main>
+      <HeroSection />
+      <CollectionSection />
+      <HotSection />
+      <SpecialSection />
+    </main>
   )
 }

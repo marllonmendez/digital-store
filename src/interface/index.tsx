@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Dispatch, ReactNode, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 
-import { ProductSession } from '@/enum'
+import { ProductCategory, ProductSession } from '@/enum'
 
 export interface ILayout {
-  children?: React.ReactNode
+  children?: ReactNode
 }
 
 export interface ILogo {
@@ -17,7 +17,7 @@ export interface ISection {
   title: string
   titleAlign: 'text-center' | 'text-left'
   className?: string
-  children?: React.ReactNode
+  children?: ReactNode
   button?: boolean
 }
 
@@ -88,6 +88,7 @@ export interface IOfferCard {
 export interface IProductCard {
   type: string
   session: ProductSession
+  category?: ProductCategory
   title: string
   price: number
   discount?: number
@@ -106,7 +107,15 @@ export interface IFilterGroup {
   }[]
 }
 
-export interface ISearch {
+export interface IProductContext {
   products: IProductCard[]
-  filterProducts: React.Dispatch<React.SetStateAction<IProductCard[]>>
+  setProducts: Dispatch<SetStateAction<IProductCard[]>>
+  search: string
+  setSearch: Dispatch<SetStateAction<string>>
+  // quantityTotal: number
+  // setQuantityTotal: Dispatch<SetStateAction<number>>
+}
+
+export interface IProductProvider {
+  children: React.ReactNode
 }

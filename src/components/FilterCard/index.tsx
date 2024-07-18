@@ -6,32 +6,30 @@ import { ProductCategory, ProductGender, ProductSession, Sneaker } from '@/enum'
 import FilterGroup from '@/components/FilterGroup'
 
 const FilterCard: React.FC = () => {
-  const tagOptions: IFilterGroup['options'] = [
+  const sneakerOptions: IFilterGroup['options'] = [
     { label: Sneaker.ADIDAS, value: Sneaker.ADIDAS },
     { label: Sneaker.NIKE, value: Sneaker.NIKE },
-    { label: Sneaker.PUMA, value: Sneaker.PUMA },
   ]
 
-  const categoryOptions: IFilterGroup['options'] = [
+  const productCategoryOptions: IFilterGroup['options'] = [
     { label: ProductCategory.SPORT, value: ProductCategory.SPORT },
     { label: ProductCategory.CASUAL, value: ProductCategory.CASUAL },
-    { label: ProductCategory.UTILITY, value: ProductCategory.UTILITY },
   ]
 
-  const genderOptions: IFilterGroup['options'] = [
+  const productGenderOptions: IFilterGroup['options'] = [
     { label: ProductGender.MALE, value: ProductGender.MALE },
     { label: ProductGender.FEMALE, value: ProductGender.FEMALE },
     { label: ProductGender.UNISEX, value: ProductGender.UNISEX },
   ]
 
-  const sectionOptions: IFilterGroup['options'] = [
+  const productSessionOptions: IFilterGroup['options'] = [
     { label: ProductSession.ADULT, value: ProductSession.ADULT },
     { label: ProductSession.CHILD, value: ProductSession.CHILD },
   ]
 
   return (
-    <>
-      <div className="flex flex-col w-[308px] h-[720px] rounded bg-white">
+    <div className="flex flex-col w-[308px] h-[530px] rounded bg-white">
+      <div className="flex flex-col justify-center">
         <h1 className="text-darkGray2 font-bold text-[1rem] pt-8 pl-8">
           Filtrar por
         </h1>
@@ -42,26 +40,26 @@ const FilterCard: React.FC = () => {
           <FilterGroup
             title="Marca"
             inputType="checkbox"
-            options={tagOptions}
+            options={sneakerOptions}
           />
           <FilterGroup
             title="Categoria"
             inputType="checkbox"
-            options={categoryOptions}
+            options={productCategoryOptions}
           />
           <FilterGroup
             title="Gênero"
             inputType="checkbox"
-            options={genderOptions}
+            options={productGenderOptions}
           />
           <FilterGroup
             title="Sessão"
             inputType="radio"
-            options={sectionOptions}
+            options={productSessionOptions}
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

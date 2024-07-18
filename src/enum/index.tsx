@@ -12,11 +12,9 @@ export enum ProductSession {
 export enum Sneaker {
   ADIDAS = 'Adidas',
   NIKE = 'Nike',
-  PUMA = 'Puma',
 }
 
 export enum ProductCategory {
-  SPORT = 'Sport',
+  SPORT = 'Esporte',
   CASUAL = 'Casual',
-  UTILITY = 'Utilitário',
 }
