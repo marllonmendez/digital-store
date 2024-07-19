@@ -1,28 +1,40 @@
 import React from 'react'
 
-import { IFilterGroup } from '@/interface'
+import { useProductsContext } from '@/context/useProductContext'
 import { ProductCategory, ProductGender, ProductSession, Sneaker } from '@/enum'
 
 import FilterGroup from '@/components/FilterGroup'
 
 const FilterCard: React.FC = () => {
-  const sneakerOptions: IFilterGroup['options'] = [
+  const { setFilters } = useProductsContext()
+
+  const handleFilterChange = (
+    filterType: string,
+    values: string | string[],
+  ) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterType]: values,
+    }))
+  }
+
+  const sneakerOptions = [
     { label: Sneaker.ADIDAS, value: Sneaker.ADIDAS },
     { label: Sneaker.NIKE, value: Sneaker.NIKE },
   ]
 
-  const productCategoryOptions: IFilterGroup['options'] = [
+  const productCategoryOptions = [
     { label: ProductCategory.SPORT, value: ProductCategory.SPORT },
     { label: ProductCategory.CASUAL, value: ProductCategory.CASUAL },
   ]
 
-  const productGenderOptions: IFilterGroup['options'] = [
+  const productGenderOptions = [
     { label: ProductGender.MALE, value: ProductGender.MALE },
     { label: ProductGender.FEMALE, value: ProductGender.FEMALE },
     { label: ProductGender.UNISEX, value: ProductGender.UNISEX },
   ]
 
-  const productSessionOptions: IFilterGroup['options'] = [
+  const productSessionOptions = [
     { label: ProductSession.ADULT, value: ProductSession.ADULT },
     { label: ProductSession.CHILD, value: ProductSession.CHILD },
   ]
@@ -33,7 +45,7 @@ const FilterCard: React.FC = () => {
         <h1 className="text-darkGray2 font-bold text-[1rem] pt-8 pl-8">
           Filtrar por
         </h1>
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center">
           <span className="border border-lightGray2 border-solid w-[248px] my-5"></span>
         </div>
         <div className="flex flex-col gap-5">
@@ -41,21 +53,25 @@ const FilterCard: React.FC = () => {
             title="Marca"
             inputType="checkbox"
             options={sneakerOptions}
+            onChange={(values) => handleFilterChange('brand', values)}
           />
           <FilterGroup
             title="Categoria"
             inputType="checkbox"
             options={productCategoryOptions}
+            onChange={(values) => handleFilterChange('category', values)}
           />
           <FilterGroup
             title="Gênero"
             inputType="checkbox"
             options={productGenderOptions}
+            onChange={(values) => handleFilterChange('gender', values)}
           />
           <FilterGroup
             title="Sessão"
             inputType="radio"
             options={productSessionOptions}
+            onChange={(value) => handleFilterChange('session', value)}
           />
         </div>
       </div>

@@ -67,7 +67,7 @@ export const HotSection = () => {
           session={ProductSession.ADULT}
           category={ProductCategory.CASUAL}
           title="Air Jordan 1 Retro High OG 'Turbo Green'"
-          price={999.99}
+          price={2149.9}
           image={{
             src: 'https://image.goat.com/attachments/product_template_pictures/images/018/552/901/original/404758_00.png.png',
             style: 'w-52 rotate-[-30deg]',
@@ -78,7 +78,7 @@ export const HotSection = () => {
           session={ProductSession.ADULT}
           category={ProductCategory.CASUAL}
           title="Air Jordan 1 Retro High OG 'Crimson Tint'"
-          price={999.99}
+          price={1499.99}
           image={{
             src: 'https://image.goat.com/attachments/product_template_pictures/images/020/249/059/original/485842_00.png.png',
             style: 'w-52 rotate-[-30deg]',
@@ -88,10 +88,10 @@ export const HotSection = () => {
           type="Tênis"
           session={ProductSession.ADULT}
           category={ProductCategory.CASUAL}
-          title="Air Jordan 1 Retro High SB 'Lakers'"
-          price={999.99}
+          title="Air Jordan 1 Retro High OG Spider Man 'Origin Story'"
+          price={1999.99}
           image={{
-            src: 'https://image.goat.com/attachments/product_template_pictures/images/020/270/533/original/CD6578_507.png.png',
+            src: 'https://image.goat.com/attachments/product_template_pictures/images/016/867/969/original/478648_00.png.png',
             style: 'w-52 rotate-[-30deg]',
           }}
         />
@@ -99,10 +99,10 @@ export const HotSection = () => {
           type="Tênis"
           session={ProductSession.ADULT}
           category={ProductCategory.CASUAL}
-          title="Air Jordan 1 Retro High OG 'Origin Story'"
-          price={999.99}
+          title="Air Jordan 1 Retro High SB 'Lakers'"
+          price={3640.9}
           image={{
-            src: 'https://image.goat.com/attachments/product_template_pictures/images/016/867/969/original/478648_00.png.png',
+            src: 'https://image.goat.com/attachments/product_template_pictures/images/020/270/533/original/CD6578_507.png.png',
             style: 'w-52 rotate-[-30deg]',
           }}
         />

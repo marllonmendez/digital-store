@@ -1,13 +1,26 @@
 import React, { useState } from 'react'
+import { IFilterGroup } from '@/interface'
 import { FaCheck, FaCircle } from 'react-icons/fa6'
 
-import { IFilterGroup } from '@/interface'
-
-const FilterGroup: React.FC<IFilterGroup> = ({ title, inputType, options }) => {
-  const [checked, setChecked] = useState<string | null>(null)
+const FilterGroup: React.FC<IFilterGroup> = ({
+  title,
+  inputType,
+  options,
+  onChange,
+}) => {
+  const [checked, setChecked] = useState<string[]>([])
 
   const handleInputChange = (value: string) => {
-    setChecked(value === checked ? null : value)
+    if (inputType === 'checkbox') {
+      const updatedValues = checked.includes(value)
+        ? checked.filter((v) => v !== value)
+        : [...checked, value]
+      setChecked(updatedValues)
+      onChange(updatedValues)
+    } else {
+      setChecked([value])
+      onChange(value)
+    }
   }
 
   return (
@@ -21,7 +34,7 @@ const FilterGroup: React.FC<IFilterGroup> = ({ title, inputType, options }) => {
           <input
             type={inputType}
             value={option.value}
-            checked={checked === option.value}
+            checked={checked.includes(option.value)}
             onChange={() => handleInputChange(option.value)}
             className={`
               peer cursor-pointer appearance-none h-4 w-4 border border-darkGray3 focus:outline-none relative 
@@ -35,11 +48,11 @@ const FilterGroup: React.FC<IFilterGroup> = ({ title, inputType, options }) => {
           <div className="flex items-center justify-center absolute top-1/2 right-[16.75rem]">
             {inputType === 'checkbox' ? (
               <FaCheck
-                className={`text-white absolute w-3 ${checked === option.value ? 'block' : 'hidden'}`}
+                className={`text-white absolute w-3 ${checked.includes(option.value) ? 'block' : 'hidden'}`}
               />
             ) : (
               <FaCircle
-                className={`text-primary absolute w-2 ${checked === option.value ? 'block' : 'hidden'}`}
+                className={`text-primary absolute w-2 ${checked.includes(option.value) ? 'block' : 'hidden'}`}
               />
             )}
           </div>

@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { LuSearch } from 'react-icons/lu'
 
 import { useProductsContext } from '@/context/useProductContext'
 
 const Search: React.FC = () => {
-  const { setSearch } = useProductsContext()
+  const { setSearch, filters } = useProductsContext()
   const [localQuery, setLocalQuery] = useState('')
+  const [previousFilters, setPreviousFilters] = useState(filters)
+
+  useEffect(() => {
+    if (JSON.stringify(filters) !== JSON.stringify(previousFilters)) {
+      setLocalQuery('')
+      setSearch('')
+      setPreviousFilters(filters)
+    }
+  }, [filters, previousFilters, setSearch])
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocalQuery(e.target.value)

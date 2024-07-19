@@ -7,10 +7,23 @@ const ProductContext = createContext({} as IProductContext)
 export default function ProductProvider({ children }: IProductProvider) {
   const [products, setProducts] = useState<IProductCard[]>([])
   const [search, setSearch] = useState('')
+  const [filters, setFilters] = useState<IProductContext['filters']>({
+    session: [],
+    category: [],
+    brand: [],
+    gender: [],
+  })
 
   return (
     <ProductContext.Provider
-      value={{ products, setProducts, search, setSearch }}
+      value={{
+        products,
+        setProducts,
+        search,
+        setSearch,
+        filters,
+        setFilters,
+      }}
     >
       {children}
     </ProductContext.Provider>
