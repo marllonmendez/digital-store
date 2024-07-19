@@ -118,10 +118,10 @@ export interface IProductContext {
   quantityTotal?: number
   setQuantityTotal?: Dispatch<SetStateAction<number>>
   filters: {
-    session: ProductSession
-    category: ProductCategory
-    brand: Sneaker
-    gender: ProductGender
+    session: ProductSession[]
+    category: ProductCategory[]
+    brand: Sneaker[]
+    gender: ProductGender[]
   }
   setFilters: Dispatch<SetStateAction<IProductContext['filters']>>
 }
