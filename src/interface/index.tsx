@@ -1,7 +1,12 @@
 import React, { Dispatch, ReactNode, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 
-import { ProductCategory, ProductGender, ProductSession, Sneaker } from '@/enum'
+import {
+  ProductCategory,
+  ProductGender,
+  ProductSession,
+  SneakerBrand,
+} from '@/enum'
 
 export interface ILayout {
   children?: ReactNode
@@ -85,6 +90,14 @@ export interface IOfferCard {
   className?: string
 }
 
+export interface IOrderCard {
+  options: {
+    label: string
+    value: string
+    rating: string
+  }[]
+}
+
 export interface IFilterGroup {
   title: string
   inputType: 'checkbox' | 'radio'
@@ -96,18 +109,16 @@ export interface IFilterGroup {
 }
 
 export interface IProductCard {
+  id?: number
   type: string
   session?: ProductSession
   category?: ProductCategory
-  brand?: Sneaker
+  brand?: SneakerBrand
   gender?: ProductGender
   title: string
   price: number
   discount?: number
-  image: {
-    src: string
-    style?: string
-  }
+  image: string
 }
 
 export interface IProductContext {
@@ -120,7 +131,7 @@ export interface IProductContext {
   filters: {
     session: ProductSession[]
     category: ProductCategory[]
-    brand: Sneaker[]
+    brand: SneakerBrand[]
     gender: ProductGender[]
   }
   setFilters: Dispatch<SetStateAction<IProductContext['filters']>>

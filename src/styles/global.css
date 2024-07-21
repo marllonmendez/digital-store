@@ -2,6 +2,30 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --primary: #C92071;
+  --secondary: #B5B6F2;
+  --tertiary: #991956;
+  --error: #EE4266;
+  --success: #52CA76;
+  --warning: #F6AA1C;
+  --darkGray: #1F1F1F;
+  --darkGray2: #474747;
+  --darkGray3: #666666;
+  --lightGray: #8F8F8F;
+  --lightGray2: #CCCCCC;
+  --lightGray3: #F5F5F5;
+  --white: #FFFFFF;
+  --white2: #F9F8FE;
+  --productBlue: #D8E3F2;
+  --productOff: #E7FF86;
+}
+
+
 .swiper-pagination-bullet, .swiper-pagination-bullet-active {
-  background: #C92071;
+  background: var(--primary);
+}
+
+.darkgray2 {
+  color: var(--darkGray2);
 }

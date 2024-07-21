@@ -1,7 +1,12 @@
 import React from 'react'
 
 import { useProductsContext } from '@/context/useProductContext'
-import { ProductCategory, ProductGender, ProductSession, Sneaker } from '@/enum'
+import {
+  ProductCategory,
+  ProductGender,
+  ProductSession,
+  SneakerBrand,
+} from '@/enum'
 
 import FilterGroup from '@/components/FilterGroup'
 
@@ -19,8 +24,8 @@ const FilterCard: React.FC = () => {
   }
 
   const sneakerOptions = [
-    { label: Sneaker.ADIDAS, value: Sneaker.ADIDAS },
-    { label: Sneaker.NIKE, value: Sneaker.NIKE },
+    { label: SneakerBrand.ADIDAS, value: SneakerBrand.ADIDAS },
+    { label: SneakerBrand.NIKE, value: SneakerBrand.NIKE },
   ]
 
   const productCategoryOptions = [

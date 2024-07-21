@@ -9,7 +9,7 @@ export enum ProductSession {
   CHILD = 'Infantil',
 }
 
-export enum Sneaker {
+export enum SneakerBrand {
   ADIDAS = 'Adidas',
   NIKE = 'Nike',
 }
@@ -17,4 +17,10 @@ export enum Sneaker {
 export enum ProductCategory {
   SPORT = 'Esporte',
   CASUAL = 'Casual',
+}
+
+export enum ProductOrder {
+  RELEVANT = 'Mais Relevantes',
+  LOWPRICE = 'Menor Preço',
+  HIGHPRICE = 'Maior Preço',
 }

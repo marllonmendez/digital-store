@@ -23,6 +23,9 @@ const ProductCard: React.FC<IProductCard> = ({
       className="flex flex-col items-center justify-center mb-10 cursor-pointer"
       whileHover={{ scale: 1.07 }}
       whileTap={{ scale: 0.9 }}
+      initial={{ y: 50 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.5, type: 'spring' }}
     >
       <div className="w-72 h-80 rounded bg-white">
         <div className="p-4 z-10 relative max-w-44">
@@ -32,11 +35,11 @@ const ProductCard: React.FC<IProductCard> = ({
             <div className="mb-4 w-24 h-8"></div>
           )}
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center relative -top-3 -left-3">
           <img
-            src={image.src}
+            src={image}
             alt={title}
-            className={`transform scale-x-[-1] ${image.style}`}
+            className={`transform scale-x-[-1] w-60 rotate-[-30deg]`}
           />
         </div>
       </div>
