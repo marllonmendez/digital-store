@@ -1,14 +1,15 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
+import { IBanner } from '@/interface'
+
 import OfferCard from '@/components/OfferCard'
 
 import Ornament from '@/assets/ornament.png'
-import whiteSneaker from '@/assets/white-sneaker.png'
 
-const Banner: React.FC = () => {
+const Banner: React.FC<IBanner> = ({ image }) => {
   return (
-    <section className="flex items-center justify-center bg-lightGray3 px-24 py-5">
+    <section className="flex items-center justify-center bg-lightGray3 px-24 py-5 md:px-32">
       <img
         src={Ornament}
         alt="Particulas brilhantes"
@@ -37,9 +38,9 @@ const Banner: React.FC = () => {
       />
       <div className="flex w-1/2">
         <motion.img
-          src={whiteSneaker}
+          src={image}
           className="w-full h-full"
-          alt="Nike AIR"
+          alt="Nike Sneaker"
           animate={{ y: [5, -5] }}
           transition={{
             y: {

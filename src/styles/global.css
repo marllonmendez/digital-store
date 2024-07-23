@@ -3,5 +3,5 @@
 @import 'tailwindcss/utilities';
 
 .swiper-pagination-bullet, .swiper-pagination-bullet-active {
-  background: var(--primary);
+  background: #C92071;
 }

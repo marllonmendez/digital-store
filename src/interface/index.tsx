@@ -18,6 +18,10 @@ export interface ILogo {
   className?: string
 }
 
+export interface IBanner {
+  image: any
+}
+
 export interface ISection {
   title: string
   titleAlign: 'text-center' | 'text-left'
