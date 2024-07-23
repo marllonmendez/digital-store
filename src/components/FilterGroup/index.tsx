@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { IFilterGroup } from '@/interface'
 import { FaCheck, FaCircle } from 'react-icons/fa6'
+
+import { IFilterGroup } from '@/interface'
 
 const FilterGroup: React.FC<IFilterGroup> = ({
   title,

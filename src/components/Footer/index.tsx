@@ -7,7 +7,7 @@ import ItemsFooter from '@/components/Footer/ItemsFooter'
 import logoFooter from '@/assets/logo-footer.svg'
 
 const Footer: React.FC = () => {
-  function Year() {
+  const Year = () => {
     return new Date().getFullYear()
   }
 

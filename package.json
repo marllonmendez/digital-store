@@ -1,7 +1,7 @@
 {
   "name": "digital-store",
   "private": true,
-  "version": "1.1.0-dev",
+  "version": "1.1.1-dev",
   "type": "module",
   "author": "marllonmendez",
   "scripts": {
@@ -43,5 +43,8 @@
     "tailwindcss": "^3.4.5",
     "typescript": "^5.5.3",
     "vite": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.19.0"
   }
 }

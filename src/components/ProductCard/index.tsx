@@ -2,7 +2,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 import { IProductCard } from '@/interface'
-import { FormatPrice } from '@/utils/Format/FormatPrice'
+import { FormatPrice } from '@/utils/Price/FormatPrice'
+import { DiscountPrice } from '@/utils/Price/DiscountPrice'
 
 import Discount from '@/components/Discount'
 
@@ -14,10 +15,6 @@ const ProductCard: React.FC<IProductCard> = ({
   session,
   image,
 }) => {
-  const discountedPrice = () => {
-    return discount ? price * ((100 - discount) / 100) : price
-  }
-
   return (
     <motion.div
       className="flex flex-col items-center justify-center mb-10 cursor-pointer"
@@ -63,7 +60,7 @@ const ProductCard: React.FC<IProductCard> = ({
               </span>
               <span className="mx-10" />
               <span className="text-darkGray font-bold text-[24px] w-16 h-10">
-                {FormatPrice(discountedPrice())}
+                {FormatPrice(DiscountPrice(price, discount))}
               </span>
             </div>
           ) : (

@@ -1,6 +1,12 @@
 import React, { createContext, useContext, useState } from 'react'
 
-import { IProductCard, IProductContext, IProductProvider } from '@/interface'
+import {
+  IProductCard,
+  IProductContext,
+  IProductProvider,
+  ISelectOrder,
+} from '@/interface'
+import { ProductOrder } from '@/enum'
 
 const ProductContext = createContext({} as IProductContext)
 
@@ -13,6 +19,11 @@ export default function ProductProvider({ children }: IProductProvider) {
     brand: [],
     gender: [],
   })
+  const [order, setOrder] = useState<ISelectOrder['options']>([
+    { label: ProductOrder.RELEVANT, value: ProductOrder.RELEVANT },
+    { label: ProductOrder.LOWPRICE, value: ProductOrder.LOWPRICE },
+    { label: ProductOrder.HIGHPRICE, value: ProductOrder.HIGHPRICE },
+  ])
 
   return (
     <ProductContext.Provider
@@ -23,6 +34,8 @@ export default function ProductProvider({ children }: IProductProvider) {
         setSearch,
         filters,
         setFilters,
+        order,
+        setOrder,
       }}
     >
       {children}

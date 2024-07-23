@@ -1,13 +1,24 @@
 import React from 'react'
 import Select from 'react-select'
-import makeAnimated from 'react-select/animated'
 import { motion } from 'framer-motion'
 
-import { IOrderCard } from '@/interface'
+import { ProductOrder } from '@/enum'
+import { useProductsContext } from '@/context/useProductContext'
+
 import { StylesSelect } from '@/components/OrderCard/StylesSelect'
 
-const OrderCard: React.FC<IOrderCard> = ({ options }) => {
-  const animated = makeAnimated()
+const OrderCard: React.FC = () => {
+  const { setOrder } = useProductsContext()
+
+  const handleSelectChange = (option: any) => {
+    setOrder([option])
+  }
+
+  const options = [
+    { label: ProductOrder.RELEVANT, value: ProductOrder.RELEVANT },
+    { label: ProductOrder.LOWPRICE, value: ProductOrder.LOWPRICE },
+    { label: ProductOrder.HIGHPRICE, value: ProductOrder.HIGHPRICE },
+  ]
 
   return (
     <motion.div
@@ -18,13 +29,13 @@ const OrderCard: React.FC<IOrderCard> = ({ options }) => {
       transition={{ duration: 0.5, type: 'spring' }}
       className="cursor-pointer relative z-20"
     >
-      <Select<IOrderCard['options'][number], true>
-        components={animated}
+      <Select
         defaultValue={options[0]}
         options={options}
+        onChange={handleSelectChange}
         formatOptionLabel={(option) => (
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ fontWeight: 'bold' }}>{option.rating}</span>
+            <span style={{ fontWeight: 'bold' }}>Ordenar Por:</span>
             <span style={{ fontWeight: 'normal' }}>{option.label}</span>
           </div>
         )}

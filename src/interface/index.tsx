@@ -5,7 +5,7 @@ import {
   ProductCategory,
   ProductGender,
   ProductSession,
-  SneakerBrand,
+  ProductBrand,
 } from '@/enum'
 
 export interface ILayout {
@@ -90,12 +90,8 @@ export interface IOfferCard {
   className?: string
 }
 
-export interface IOrderCard {
-  options: {
-    label: string
-    value: string
-    rating: string
-  }[]
+export interface IProductListing {
+  products: IProductCard[]
 }
 
 export interface IFilterGroup {
@@ -108,12 +104,19 @@ export interface IFilterGroup {
   onChange: (value: string | string[]) => void
 }
 
+export interface ISelectOrder {
+  options: {
+    label: string
+    value: string
+  }[]
+}
+
 export interface IProductCard {
   id?: number
   type: string
   session?: ProductSession
   category?: ProductCategory
-  brand?: SneakerBrand
+  brand?: ProductBrand
   gender?: ProductGender
   title: string
   price: number
@@ -131,10 +134,12 @@ export interface IProductContext {
   filters: {
     session: ProductSession[]
     category: ProductCategory[]
-    brand: SneakerBrand[]
+    brand: ProductBrand[]
     gender: ProductGender[]
   }
   setFilters: Dispatch<SetStateAction<IProductContext['filters']>>
+  order: ISelectOrder['options']
+  setOrder: Dispatch<SetStateAction<ISelectOrder['options']>>
 }
 
 export interface IProductProvider {

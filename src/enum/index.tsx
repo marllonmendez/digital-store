@@ -9,7 +9,7 @@ export enum ProductSession {
   CHILD = 'Infantil',
 }
 
-export enum SneakerBrand {
+export enum ProductBrand {
   ADIDAS = 'Adidas',
   NIKE = 'Nike',
 }

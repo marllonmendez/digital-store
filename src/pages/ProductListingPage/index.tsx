@@ -5,17 +5,19 @@ import { motion } from 'framer-motion'
 import { Products } from '@/mock'
 import { ProductOrder } from '@/enum'
 import { IProductCard } from '@/interface'
+import { DiscountPrice } from '@/utils/Price/DiscountPrice'
 import { useProductsContext } from '@/context/useProductContext'
 
 import FilterCard from '@/components/FilterCard'
-import ProductCard from '@/components/ProductCard'
 import OrderCard from '@/components/OrderCard'
+import ProductListing from '@/components/ProductListing'
 
 export const ProductListingPage = () => {
-  const { search, filters } = useProductsContext()
+  const { search, filters, order } = useProductsContext()
 
-  const filterProducts = useMemo(() => {
-    return Products.filter(
+  const products = useMemo(() => {
+    // Filtragem
+    const filterProducts = Products.filter(
       (product: IProductCard) =>
         (filters.session.length === 0 ||
           filters.session.includes(product.session!)) &&
@@ -28,18 +30,30 @@ export const ProductListingPage = () => {
         (product.title.toLowerCase().includes(search.toLowerCase()) ||
           product.type.toLowerCase().includes(search.toLowerCase())),
     )
-  }, [search, filters])
 
-  const orderOptions = useMemo(() => {
-    return Object.entries(ProductOrder).map(([key, value]) => ({
-      label: value,
-      value: key,
-      rating: 'Ordenar Por:',
-    }))
-  }, [])
+    // Ordenação
+    switch (order[0]?.value) {
+      case ProductOrder.LOWPRICE:
+        filterProducts.sort((a, b) => {
+          const lowPriceA = DiscountPrice(a.price, a.discount!)
+          const lowPriceB = DiscountPrice(b.price, b.discount!)
+          return lowPriceA - lowPriceB
+        })
+        break
+      case ProductOrder.HIGHPRICE:
+        filterProducts.sort((a, b) => {
+          const lowPriceA = DiscountPrice(a.price, a.discount!)
+          const lowPriceB = DiscountPrice(b.price, b.discount!)
+          return lowPriceB - lowPriceA
+        })
+        break
+    }
+
+    return filterProducts
+  }, [search, filters, order])
 
   const isSearch = search.trim().length > 0
-  const isProduct = filterProducts.length > 0
+  const isProduct = products.length > 0
 
   return (
     <section className="flex flex-col items-center justify-center px-24 md:px-32">
@@ -51,18 +65,17 @@ export const ProductListingPage = () => {
             </span>
             <span className="font-normal">
               {' '}
-              {filterProducts.length}{' '}
-              {filterProducts.length !== 1 ? 'produtos' : 'produto'}
+              {products.length} {products.length !== 1 ? 'produtos' : 'produto'}
             </span>
           </h2>
         )}
         <div className="flex justify-end w-full">
-          {isProduct && <OrderCard options={orderOptions} />}
+          {isProduct && <OrderCard />}
         </div>
       </div>
       <div className="flex items-center justify-center w-full">
         <div className="flex w-full h-full justify-between">
-          <div className="flex w-auto h-auto">
+          <div className="flex justify-center">
             <FilterCard />
           </div>
           <div className="flex flex-col w-full">
@@ -74,9 +87,7 @@ export const ProductListingPage = () => {
               }`}
             >
               {isProduct ? (
-                filterProducts.map((product: IProductCard) => (
-                  <ProductCard key={product.id} {...product} />
-                ))
+                <ProductListing products={products} />
               ) : (
                 <motion.div
                   initial={{ y: 50 }}
