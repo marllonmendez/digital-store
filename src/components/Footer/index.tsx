@@ -2,7 +2,7 @@ import React from 'react'
 import { FaFacebook, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 
 import Logo from '@/components/Logo'
-import ItemsFooter from '@/components/Footer/ItemsFooter'
+import ItemFooter from '@/components/Footer/ItemFooter'
 
 import logoFooter from '@/assets/logo-footer.svg'
 
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="flex justify-between gap-28">
-          <ItemsFooter
+          <ItemFooter
             title="Informações"
             items={[
               'Sobre Drip Store',
@@ -56,11 +56,11 @@ const Footer: React.FC = () => {
               'Meus Pedidos',
             ]}
           />
-          <ItemsFooter
+          <ItemFooter
             title="Categorias"
             items={['Camisetas', 'Calças', 'Bonés', 'Headphones', 'Tênis']}
           />
-          <ItemsFooter
+          <ItemFooter
             title="Contato"
             items={[
               'Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161',

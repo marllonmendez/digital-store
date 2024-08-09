@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { BsArrowRight } from 'react-icons/bs'
 
 import { ISection } from '@/interface'
+import { Timeout } from '@/utils/Timeout'
 
 import Button from '@/components/Button'
 
@@ -12,14 +13,10 @@ const Section: React.FC<ISection> = ({
   className,
   children,
   button,
+  href,
 }) => {
   const handleScroll = () => {
-    setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      })
-    }, 10)
+    return Timeout()
   }
 
   return (
@@ -33,7 +30,7 @@ const Section: React.FC<ISection> = ({
           {title}
         </h2>
         {button && (
-          <Link to={'/produtos'}>
+          <Link to={href!}>
             <Button
               label="Ver todos"
               className="bg-none font-normal w-32 h-10 text-primary gap-2 pt-9 pb-5 hover:text-tertiary ease-in transition-all duration-300"

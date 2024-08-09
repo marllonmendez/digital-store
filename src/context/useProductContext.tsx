@@ -12,7 +12,10 @@ const ProductContext = createContext({} as IProductContext)
 
 export default function ProductProvider({ children }: IProductProvider) {
   const [products, setProducts] = useState<IProductCard[]>([])
-  const [search, setSearch] = useState('')
+  const [productDetails, setProductDetails] = useState<IProductCard | null>(
+    null,
+  )
+  const [search, setSearch] = useState<string>('')
   const [filters, setFilters] = useState<IProductContext['filters']>({
     session: [],
     category: [],
@@ -30,6 +33,8 @@ export default function ProductProvider({ children }: IProductProvider) {
       value={{
         products,
         setProducts,
+        productDetails,
+        setProductDetails,
         search,
         setSearch,
         filters,

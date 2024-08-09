@@ -28,6 +28,7 @@ export interface ISection {
   className?: string
   children?: ReactNode
   button?: boolean
+  href?: string
 }
 
 export interface INavigation {
@@ -44,12 +45,7 @@ export interface IButton {
   icon?: IconType
 }
 
-export interface IGalley {
-  className?: string
-  images?: string[]
-}
-
-export interface IItemsFooter {
+export interface IItemFooter {
   title: string
   items: string[]
   className?: string
@@ -94,8 +90,38 @@ export interface IOfferCard {
   className?: string
 }
 
+export interface IPath {
+  items: {
+    label?: any
+    path?: any
+  }[]
+}
+
 export interface IProductListing {
   products: IProductCard[]
+}
+
+export interface IProductDetails {
+  children: ReactNode
+  className: string
+}
+
+export interface IBuyBox {
+  name: string
+  price: number
+  discount?: number
+  description: string
+  session: string
+  category: string
+  brand: string
+  gender: string
+  size: string
+}
+
+export interface IProductOptions {
+  label: string
+  children?: ReactNode
+  className?: string
 }
 
 export interface IFilterGroup {
@@ -118,19 +144,24 @@ export interface ISelectOrder {
 export interface IProductCard {
   id?: number
   type: string
-  session?: ProductSession
-  category?: ProductCategory
-  brand?: ProductBrand
-  gender?: ProductGender
-  title: string
+  name: string
+  session: ProductSession
+  category: ProductCategory
+  brand: ProductBrand
+  gender: ProductGender
   price: number
   discount?: number
+  size: string
   image: string
+  description: string
+  slug?: string
 }
 
 export interface IProductContext {
   products: IProductCard[]
   setProducts: Dispatch<SetStateAction<IProductCard[]>>
+  productDetails: IProductCard | null
+  setProductDetails: Dispatch<SetStateAction<IProductCard | null>>
   search: string
   setSearch: Dispatch<SetStateAction<string>>
   quantityTotal?: number

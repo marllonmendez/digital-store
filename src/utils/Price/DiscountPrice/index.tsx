@@ -1,3 +1,3 @@
-export const DiscountPrice = (price: number, discount: number) => {
-  return price * ((100 - discount) / 100)
+export const DiscountPrice = (price: number, discount?: number) => {
+  return discount ? price - (price * discount) / 100 : price
 }

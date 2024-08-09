@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { LuSearch } from 'react-icons/lu'
 
 import { useProductsContext } from '@/context/useProductContext'
 
 const Search: React.FC = () => {
-  const { setSearch, filters } = useProductsContext()
+  const { setSearch } = useProductsContext()
   const [localQuery, setLocalQuery] = useState('')
-  const [previousFilters, setPreviousFilters] = useState(filters)
+
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
-    if (JSON.stringify(filters) !== JSON.stringify(previousFilters)) {
-      setLocalQuery('')
-      setSearch('')
-      setPreviousFilters(filters)
-    }
-  }, [filters, previousFilters, setSearch])
+    const queryParams = new URLSearchParams(location.search)
+    const filterQuery = queryParams.get('filter') || ''
+    setLocalQuery(filterQuery)
+    setSearch(filterQuery)
+  }, [location.search, setSearch])
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocalQuery(e.target.value)
@@ -22,6 +24,7 @@ const Search: React.FC = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    navigate(`/produtos?filter=${encodeURIComponent(localQuery)}`)
     setSearch(localQuery)
   }
 

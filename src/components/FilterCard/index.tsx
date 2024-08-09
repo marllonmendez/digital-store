@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import {
@@ -12,16 +13,36 @@ import { useProductsContext } from '@/context/useProductContext'
 import FilterGroup from '@/components/FilterGroup'
 
 const FilterCard: React.FC = () => {
-  const { setFilters } = useProductsContext()
+  const { setFilters, setSearch } = useProductsContext()
+
+  const navigate = useNavigate()
 
   const handleFilterChange = (
     filterType: string,
     values: string | string[],
   ) => {
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [filterType]: values,
-    }))
+    setFilters((prevFilters) => {
+      const updatedFilters = {
+        ...prevFilters,
+        [filterType]: values,
+      }
+
+      const queryParams = new URLSearchParams()
+      Object.entries(updatedFilters).forEach(([key, value]) => {
+        if (Array.isArray(value) && value.length > 0) {
+          queryParams.set(key, value.join(','))
+        } else if (value) {
+          if (typeof value === 'string') {
+            queryParams.set(key, value)
+          }
+        }
+      })
+
+      navigate(`/produtos?${queryParams.toString()}`)
+      setSearch('')
+
+      return updatedFilters
+    })
   }
 
   const productBrandOptions = [

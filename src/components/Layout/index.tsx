@@ -10,9 +10,9 @@ import Footer from '@/components/Footer'
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <ProductProvider>
-      <div className="flex flex-col bg-white2">
+      <div className="flex flex-col min-h-screen bg-white2">
         <Header />
-        <main className="min-h-screen">{children}</main>
+        {children}
         <Footer />
       </div>
     </ProductProvider>

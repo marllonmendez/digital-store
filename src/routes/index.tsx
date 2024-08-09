@@ -5,6 +5,9 @@ import { HomePage } from '@/pages/HomePage'
 import { ProductListingPage } from '@/pages/ProductListingPage'
 
 import Layout from '@/components/Layout'
+import NotFoundPage from '@/components/NotFound/Page'
+
+import { ProductViewPage } from '@/pages/ProductViewPage'
 
 const AppRoutes = (): ReactElement => {
   return (
@@ -25,6 +28,15 @@ const AppRoutes = (): ReactElement => {
           </Layout>
         }
       />
+      <Route
+        path="/produto/:slug"
+        element={
+          <Layout>
+            <ProductViewPage />
+          </Layout>
+        }
+      />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }

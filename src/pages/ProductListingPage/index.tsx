@@ -1,59 +1,65 @@
-import React, { useMemo } from 'react'
-import { RiFileList3Fill } from 'react-icons/ri'
-import { motion } from 'framer-motion'
+import React, { useEffect, useMemo } from 'react'
 
-import { Products } from '@/mock'
+import { useProductsContext } from '@/context/useProductContext'
 import { ProductOrder } from '@/enum'
 import { IProductCard } from '@/interface'
 import { DiscountPrice } from '@/utils/Price/DiscountPrice'
-import { useProductsContext } from '@/context/useProductContext'
+
+import Service from '@/service'
 
 import FilterCard from '@/components/FilterCard'
 import OrderCard from '@/components/OrderCard'
 import ProductListing from '@/components/ProductListing'
+import NotFoundProduct from '@/components/NotFound/Product'
 
 export const ProductListingPage = () => {
-  const { search, filters, order } = useProductsContext()
+  const { products, setProducts, search, filters, order } = useProductsContext()
 
-  const products = useMemo(() => {
-    // Filtragem
-    const filterProducts = Products.filter(
+  useEffect(() => {
+    async function getProducts() {
+      try {
+        const response = await Service.products()
+        setProducts(response.data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+    getProducts()
+  }, [setProducts])
+
+  const data = useMemo(() => {
+    const filterProducts = products.filter(
       (product: IProductCard) =>
         (filters.session.length === 0 ||
-          filters.session.includes(product.session!)) &&
+          filters.session.includes(product.session)) &&
         (filters.category.length === 0 ||
-          filters.category.includes(product.category!)) &&
-        (filters.brand.length === 0 ||
-          filters.brand.includes(product.brand!)) &&
+          filters.category.includes(product.category)) &&
+        (filters.brand.length === 0 || filters.brand.includes(product.brand)) &&
         (filters.gender.length === 0 ||
-          filters.gender.includes(product.gender!)) &&
-        (product.title.toLowerCase().includes(search.toLowerCase()) ||
+          filters.gender.includes(product.gender)) &&
+        (product.name.toLowerCase().includes(search.toLowerCase()) ||
           product.type.toLowerCase().includes(search.toLowerCase())),
     )
 
-    // Ordenação
-    switch (order[0]?.value) {
-      case ProductOrder.LOWPRICE:
-        filterProducts.sort((a, b) => {
-          const lowPriceA = DiscountPrice(a.price, a.discount!)
-          const lowPriceB = DiscountPrice(b.price, b.discount!)
-          return lowPriceA - lowPriceB
-        })
-        break
-      case ProductOrder.HIGHPRICE:
-        filterProducts.sort((a, b) => {
-          const lowPriceA = DiscountPrice(a.price, a.discount!)
-          const lowPriceB = DiscountPrice(b.price, b.discount!)
-          return lowPriceB - lowPriceA
-        })
-        break
-    }
+    filterProducts.sort((a, b) => {
+      const priceA = DiscountPrice(a.price, a.discount)
+      const priceB = DiscountPrice(b.price, b.discount)
+
+      switch (order[0]?.value) {
+        case ProductOrder.LOWPRICE:
+          return priceA - priceB
+        case ProductOrder.HIGHPRICE:
+          return priceB - priceA
+        default:
+          return 0
+      }
+    })
 
     return filterProducts
-  }, [search, filters, order])
+  }, [products, search, filters, order])
 
   const isSearch = search.trim().length > 0
-  const isProduct = products.length > 0
+  const isProduct = data.length > 0
 
   return (
     <section className="flex flex-col items-center justify-center px-24 md:px-32">
@@ -65,7 +71,7 @@ export const ProductListingPage = () => {
             </span>
             <span className="font-normal">
               {' '}
-              {products.length} {products.length !== 1 ? 'produtos' : 'produto'}
+              {data.length} {data.length !== 1 ? 'produtos' : 'produto'}
             </span>
           </h2>
         )}
@@ -87,24 +93,9 @@ export const ProductListingPage = () => {
               }`}
             >
               {isProduct ? (
-                <ProductListing products={products} />
+                <ProductListing products={data} />
               ) : (
-                <motion.div
-                  initial={{ y: 50 }}
-                  whileInView={{ y: 0 }}
-                  transition={{ duration: 0.5, type: 'spring' }}
-                  className="flex items-center justify-center text-darkGray2 text-center w-full h-full"
-                >
-                  <div className="flex flex-col items-center justify-center">
-                    <RiFileList3Fill size={120} />
-                    <h1 className="font-bold text-2xl">
-                      Nenhum produto encontrado
-                    </h1>
-                    <p className="font-normal text-[1rem]">
-                      Entre em contato com o suporte.
-                    </p>
-                  </div>
-                </motion.div>
+                <NotFoundProduct />
               )}
             </div>
           </div>
@@ -113,5 +104,3 @@ export const ProductListingPage = () => {
     </section>
   )
 }
-
-export default ProductListingPage

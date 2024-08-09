@@ -7,22 +7,20 @@ import { DiscountPrice } from '@/utils/Price/DiscountPrice'
 
 import Discount from '@/components/Discount'
 
-const ProductCard: React.FC<IProductCard> = ({
-  type,
-  title,
-  price,
-  discount,
-  session,
-  image,
-}) => {
+const ProductCard: React.FC<
+  Pick<
+    IProductCard,
+    'type' | 'name' | 'session' | 'price' | 'discount' | 'image'
+  >
+> = ({ type, name, session, price, discount, image }) => {
   return (
     <motion.div
-      className="flex flex-col items-center justify-center mb-10 cursor-pointer"
       whileHover={{ scale: 1.07 }}
       whileTap={{ scale: 0.9 }}
       initial={{ y: 50 }}
       whileInView={{ y: 0 }}
       transition={{ duration: 0.5, type: 'spring' }}
+      className="flex flex-col items-center justify-center mb-10 cursor-pointer"
     >
       <div className="w-72 h-80 rounded bg-white">
         <div className="p-4 z-10 relative max-w-44">
@@ -35,7 +33,7 @@ const ProductCard: React.FC<IProductCard> = ({
         <div className="flex items-center justify-center relative -top-3 -left-3">
           <img
             src={image}
-            alt={title}
+            alt={name}
             className={`transform scale-x-[-1] w-60 rotate-[-30deg]`}
           />
         </div>
@@ -50,21 +48,20 @@ const ProductCard: React.FC<IProductCard> = ({
           </h2>
         </div>
         <h1 className="text-darkGray2 font-normal text-[1.4rem] w-72 h-20">
-          {title}
+          {name}
         </h1>
-        <div className="flex items-center">
+        <div className="flex items-center text-[1.2rem]">
           {discount ? (
             <div className="flex items-center justify-center">
-              <span className="text-lightGray line-through font-normal text-[24px] w-16 h-10">
-                {FormatPrice(price)}
-              </span>
-              <span className="mx-10" />
-              <span className="text-darkGray font-bold text-[24px] w-16 h-10">
+              <span className="text-darkGray font-bold w-16 h-10 pr-36">
                 {FormatPrice(DiscountPrice(price, discount))}
+              </span>
+              <span className="text-lightGray line-through font-normal w-16 h-10">
+                {FormatPrice(price)}
               </span>
             </div>
           ) : (
-            <span className="text-darkGray font-bold text-[24px] w-16 h-10">
+            <span className="text-darkGray font-bold w-16 h-10">
               {FormatPrice(price)}
             </span>
           )}

@@ -29,7 +29,28 @@ const config: Config = {
         white2: '#F9F8FE',
         productBlue: '#D8E3F2',
         productOff: '#E7FF86',
+        productBg: '#E2E3FF',
+        productBg1: '#FFE8BC',
+        productBg2: '#FFC0BC',
+        productBg3: '#DEC699',
+        productBg4: '#E8DFCF',
       },
+    },
+    screens: {
+      sm: '640px',
+      // => @media (min-width: 640px) { ... }
+
+      md: '768px',
+      // => @media (min-width: 768px) { ... }
+
+      lg: '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      xl: '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
     },
   },
   plugins: [],
