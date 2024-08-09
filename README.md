@@ -48,6 +48,13 @@ npm install
 npm run dev
 ```
 
+## Informações
+Para mais detalhes sobre o projeto desenvolvido, consulte os seguintes recursos:
+
+- [Documentação oficial](https://github.com/digitalcollegebr/projeto-digital-store)
+- [E-commerce Digital Store](https://digital-store-web.vercel.app/)
+
+
 ## Licença
 
 Este projeto está licenciado sob a [Licença MIT](LICENSE).
