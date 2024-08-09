@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 
+import { Products } from '@/mock'
 import { useProductsContext } from '@/context/useProductContext'
 import { ProductOrder } from '@/enum'
 import { IProductCard } from '@/interface'
 import { DiscountPrice } from '@/utils/Price/DiscountPrice'
 
-import Service from '@/service'
+// import Service from '@/service'
 
 import FilterCard from '@/components/FilterCard'
 import OrderCard from '@/components/OrderCard'
@@ -13,22 +14,22 @@ import ProductListing from '@/components/ProductListing'
 import NotFoundProduct from '@/components/NotFound/Product'
 
 export const ProductListingPage = () => {
-  const { products, setProducts, search, filters, order } = useProductsContext()
+  const { search, filters, order } = useProductsContext()
 
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await Service.products()
-        setProducts(response.data)
-      } catch (err) {
-        console.error(err)
-      }
-    }
-    getProducts()
-  }, [setProducts])
+  // useEffect(() => {
+  //   async function getProducts() {
+  //     try {
+  //       const response = await Service.products()
+  //       setProducts(response.data)
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+  //   }
+  //   getProducts()
+  // }, [setProducts])
 
   const data = useMemo(() => {
-    const filterProducts = products.filter(
+    const filterProducts = Products.filter(
       (product: IProductCard) =>
         (filters.session.length === 0 ||
           filters.session.includes(product.session)) &&
@@ -56,7 +57,7 @@ export const ProductListingPage = () => {
     })
 
     return filterProducts
-  }, [products, search, filters, order])
+  }, [search, filters, order])
 
   const isSearch = search.trim().length > 0
   const isProduct = data.length > 0

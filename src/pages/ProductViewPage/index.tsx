@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+import { Products } from '@/mock'
 import { useProductsContext } from '@/context/useProductContext'
 import { IProductCard } from '@/interface'
 import { Timeout } from '@/utils/Timeout'
 
-import Service from '@/service'
+// import Service from '@/service'
 
 import ProductDetails from '@/components/ProductDetails'
 import ProductCard from '@/components/ProductCard'
@@ -17,38 +18,47 @@ import NotFoundProduct from '@/components/NotFound/Product'
 
 export const ProductViewPage = () => {
   const { slug } = useParams()
-  const { products, setProducts, setProductDetails, productDetails } =
-    useProductsContext()
+  const { products, setProductDetails, productDetails } = useProductsContext()
   const [relatedProducts, setRelatedProducts] = useState<IProductCard[]>([])
 
-  useEffect(() => {
-    async function getProduct() {
-      try {
-        const response = await Service.product({ slug })
-        setProductDetails(response.data)
-      } catch (err) {
-        console.error(err)
-      }
-    }
-    getProduct()
-  }, [slug, setProductDetails])
+  // useEffect(() => {
+  //   async function getProduct() {
+  //     try {
+  //       const response = await Service.product({ slug })
+  //       setProductDetails(response.data)
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+  //   }
+  //   getProduct()
+  // }, [slug, setProductDetails])
+  //
+  // useEffect(() => {
+  //   async function getProducts() {
+  //     try {
+  //       const response = await Service.products()
+  //       setProducts(response.data)
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+  //   }
+  //   getProducts()
+  // }, [setProducts])
 
   useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await Service.products()
-        setProducts(response.data)
-      } catch (err) {
-        console.error(err)
-      }
+    const product = Products.find((product) => product.slug === slug)
+    if (product) {
+      setProductDetails(product)
+    } else {
+      setProductDetails(null)
     }
-    getProducts()
-  }, [setProducts])
+  }, [setProductDetails, slug])
 
   useEffect(() => {
-    if (productDetails && products.length > 0) {
-      const filteredProducts = products
-        .filter((product) => product.brand === productDetails.brand)
+    if (productDetails && Products.length > 0) {
+      const filteredProducts = Products.filter(
+        (product) => product.brand === productDetails.brand,
+      )
         .sort(() => 0.5 - Math.random())
         .slice(0, 4)
       setRelatedProducts(filteredProducts)

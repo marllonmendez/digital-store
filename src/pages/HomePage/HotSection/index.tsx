@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { Products } from '@/mock'
 import { useProductsContext } from '@/context/useProductContext'
 import { IProductCard } from '@/interface'
 
-import Service from '@/service'
+// import Service from '@/service'
 
 import Section from '@/components/Section'
 import ProductCard from '@/components/ProductCard'
@@ -13,26 +14,35 @@ export const HotSection = () => {
   const { products, setProducts } = useProductsContext()
   const [hotProducts, setHotProducts] = useState<IProductCard[]>([])
 
+  // useEffect(() => {
+  //   async function getProducts() {
+  //     try {
+  //       const response = await Service.products()
+  //       setProducts(response.data)
+  //     } catch (err) {
+  //       console.error(err)
+  //     }
+  //   }
+  //   getProducts()
+  // }, [setProducts])
+  //
   useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await Service.products()
-        setProducts(response.data)
-      } catch (err) {
-        console.error(err)
-      }
-    }
-    getProducts()
-  }, [setProducts])
-
-  useEffect(() => {
-    if (products && products.length > 0) {
-      const filteredProducts = products
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 8)
+    if (products && Products.length > 0) {
+      const filteredProducts = Products.sort(() => 0.5 - Math.random()).slice(
+        0,
+        8,
+      )
       setHotProducts(filteredProducts)
     }
   }, [products])
+
+  // useEffect(() => {
+  //   const filteredProducts = Products.sort(() => 0.5 - Math.random()).slice(
+  //     0,
+  //     8,
+  //   )
+  //   setHotProducts(filteredProducts)
+  // }, [])
 
   return (
     <div className="flex items-center justify-center px-24 py-10 md:px-32">

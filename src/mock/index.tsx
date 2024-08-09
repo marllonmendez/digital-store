@@ -56,6 +56,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/010/223/048/original/13607_00.png.png',
     description:
       'Design elegante e conforto garantido com o Nike Air Jordan 11 Legend Blue.',
+    slug: 'nike-air-jordan-11-retro-legend-blue',
   },
   {
     id: 4,
@@ -72,6 +73,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/021/357/907/original/478963_00.png.png',
     description:
       'Tênis estiloso com detalhe em pink snakeskin, ideal para um look diferenciado.',
+    slug: 'nike-air-jordan-11-retro-low-pink-snakeskin',
   },
   {
     id: 5,
@@ -88,6 +90,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/020/310/667/original/459705_00.png.png',
     description:
       'Combine conforto e estilo com o Nike Air Jordan 11 Navy Snakeskin.',
+    slug: 'nike-air-jordan-11-retro-low-navy-snakeskin',
   },
   {
     id: 6,
@@ -104,6 +107,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/021/219/116/original/CD6846_002.png.png',
     description:
       'Tênis leve e confortável com detalhe em snakeskin, perfeito para qualquer ocasião.',
+    slug: 'nike-air-jordan-11-retro-low-light-bone-snakeskin',
   },
   {
     id: 7,
@@ -120,6 +124,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/021/317/617/original/SP_AJ1_LOW_BP.png.png',
     description:
       'Design único e confortável, ideal para quem busca estilo e exclusividade.',
+    slug: 'nike-sneaker-politics-x-air-jordan-1-low-block-partys',
   },
   {
     id: 8,
@@ -136,6 +141,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/012/219/518/original/335047_00.png.png',
     description:
       'Colaboração exclusiva Nike OFF-WHITE, perfeito para um look sofisticado.',
+    slug: 'nike-off-white-x-air-jordan-1-retro-high-og-unc',
   },
   {
     id: 9,
@@ -152,6 +158,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/012/478/518/original/365514_00.png.png',
     description:
       'Tênis icônico em colaboração com Travis Scott, ideal para colecionadores.',
+    slug: 'nike-travis-scott-x-air-jordan-4-retro-cactus-jack',
   },
   {
     id: 10,
@@ -167,6 +174,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/016/867/969/original/478648_00.png.png',
     description:
       'Inspire-se no Homem-Aranha com o Nike Air Jordan 1 Origin Story, super estiloso.',
+    slug: 'nike-air-jordan-1-retro-high-og-spider-man-origin-story',
   },
   {
     id: 11,
@@ -182,6 +190,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/018/552/901/original/404758_00.png.png',
     description:
       'Tênis com design moderno e cores vibrantes, perfeito para um look casual.',
+    slug: 'nike-air-jordan-1-retro-high-og-turbo-green',
   },
   {
     id: 12,
@@ -197,6 +206,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/020/249/059/original/485842_00.png.png',
     description:
       'Tênis feminino com cores vibrantes, ideal para quem busca estilo e conforto.',
+    slug: 'nike-air-jordan-1-retro-high-og-crimson-tint',
   },
   {
     id: 13,
@@ -212,6 +222,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/020/270/533/original/CD6578_507.png.png',
     description:
       'Tênis inspirado nos Lakers, perfeito para fãs de basquete e colecionadores.',
+    slug: 'nike-air-jordan-1-retro-high-sb-lakers',
   },
   {
     id: 14,
@@ -227,6 +238,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/020/624/696/original/FU9013.png.png',
     description:
       'Tênis Adidas Yeezy Boost, conforto e estilo em um design exclusivo e moderno.',
+    slug: 'adidas-yeezy-boost-350-v2-black-non-reflective',
   },
   {
     id: 15,
@@ -242,6 +254,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/008/654/534/original/152982_00.png.png',
     description:
       'Tênis Adidas Yeezy Beluga 2.0, estilo e conforto para qualquer ocasião.',
+    slug: 'adidas-yeezy-boost-350-v2-beluga-2-0',
   },
   {
     id: 16,
@@ -257,6 +270,7 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/014/037/000/original/357808_00.png.png',
     description:
       'Design moderno e conforto absoluto com o Adidas Yeezy Boost 350 V2 Sesame.',
+    slug: 'adidas-yeezy-boost-350-v2-sesame',
   },
   {
     id: 17,
@@ -272,5 +286,6 @@ export const Products: IProductCard[] = [
       'https://image.goat.com/attachments/product_template_pictures/images/008/707/328/original/152603_00.png.png',
     description:
       'Conforto e design inovador com o Adidas Yeezy Boost 350 V2 Blue Tint.',
+    slug: 'adidas-yeezy-boost-350-v2-blue-tint',
   },
 ]
