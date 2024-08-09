@@ -18,7 +18,13 @@
 </div>
 
 ## Sobre
-Este é o frontend mockado de um e-commerce, desenvolvido como parte de um desafio proposto na formação Full-Stack do programa Geração Tech, em parceria com o governo do estado do Ceará.
+Este desafio faz parte da formação **Desenvolvedor Web Full Stack** que é um projeto do Instituto Euvaldo Lodi (IEL) e o Governo do Estado do Ceará por meio da Agência de Desenvolvimento do Estado do Ceará (ADECE) para capacitação de jovens na área da tecnologia.
+
+### Branches
+
+- **main:** Configurada para produção, integrando com os dados reais do back-end.
+- **develop:** Configurada com dados simulados (mock) para uma prévia do funcionamento da aplicação.
+
 
 [![Hero Section](src/assets/hero-section.png)]()
 
