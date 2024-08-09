@@ -1,9 +1,10 @@
 {
   "name": "digital-store",
   "private": true,
-  "version": "1.1.6-dev",
+  "version": "1.1.7-dev",
   "type": "module",
   "author": "marllonmendez",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

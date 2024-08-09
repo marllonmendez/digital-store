@@ -31,7 +31,7 @@ const Gallery: React.FC<Pick<IProductCard, 'image'>> = ({ image }) => {
         }}
         thumbs={{ swiper: thumbsSwiper.current }}
         modules={[Pagination, Navigation, Thumbs]}
-        className="flex items-center justify-center w-full"
+        className="flex items-center justify-center w-full h-full"
       >
         {bgColors.map((bgColor, index) => (
           <SwiperSlide
