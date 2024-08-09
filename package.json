@@ -1,7 +1,7 @@
 {
   "name": "digital-store",
   "private": true,
-  "version": "1.1.4-dev",
+  "version": "1.1.5-dev",
   "type": "module",
   "author": "marllonmendez",
   "scripts": {
@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "axios": "^1.7.3",
+    "framer-motion": "^11.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "framer-motion": "^11.3.2",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.1",
     "react-select": "^5.8.0",
@@ -46,6 +46,7 @@
     "vite": "^5.3.3"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.19.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.19.0",
+    "@esbuild/linux-x64": "^0.23.0"
   }
 }
